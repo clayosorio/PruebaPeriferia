@@ -1,8 +1,8 @@
 ﻿using PruebaPeriferia.Domain.Enums;
 
-namespace PruebaPeriferia.Domain.Entities
+namespace PruebaPeriferia.Application.Dtos.Input
 {
-    public class Employee
+    public class EmployeeInputDto
     {
         public int Id { get; set; }
         public required string Name { get; set; }
@@ -10,6 +10,5 @@ namespace PruebaPeriferia.Domain.Entities
         public decimal Salary { get; set; }
         public JobPosition Position { get; set; }
         public int DepartmentId { get; set; }
-        public virtual Department? Department { get; set; }
     }
 }

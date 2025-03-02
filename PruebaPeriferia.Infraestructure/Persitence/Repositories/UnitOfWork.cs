@@ -8,7 +8,7 @@ namespace PruebaPeriferia.Infraestructure.Persitence.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
-        private IGenericRepository<Employee>? _users;
+        private IEmployeeRepository? _employees;
         private IGenericRepository<Department>? _departments;
 
         public UnitOfWork(ApplicationDbContext context)
@@ -16,7 +16,7 @@ namespace PruebaPeriferia.Infraestructure.Persitence.Repositories
             _context = context;
         }
 
-        public IGenericRepository<Employee> Employees => _users ??= new GenericRepository<Employee>(_context);
+        public IEmployeeRepository Employees => _employees ??= new EmployeeRepository(_context);
         public IGenericRepository<Department> Departments => _departments ??= new GenericRepository<Department>(_context);
 
         public async Task<int> SaveChangesAsync()

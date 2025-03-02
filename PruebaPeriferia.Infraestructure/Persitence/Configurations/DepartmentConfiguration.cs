@@ -4,11 +4,16 @@ using PruebaPeriferia.Domain.Entities;
 
 namespace PruebaPeriferia.Infraestructure.Persitence.Configurations
 {
-    internal class DepartmentConfiguration : IEntityTypeConfiguration<Employee>
+    public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
     {
-        public void Configure(EntityTypeBuilder<Employee> builder)
+        public void Configure(EntityTypeBuilder<Department> builder)
         {
             builder.HasKey(u => u.Id);
+            builder.Property(u => u.Id).ValueGeneratedOnAdd();
+
+            builder.HasMany(x => x.Employees)
+                .WithOne(x => x.Department)
+                .HasForeignKey(x => x.DepartmentId);
         }
     }
 }

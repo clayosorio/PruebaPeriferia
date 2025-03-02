@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PruebaPeriferia.Domain.Entities;
-using System;
 
 namespace PruebaPeriferia.Infraestructure.Persitence.Context
 {

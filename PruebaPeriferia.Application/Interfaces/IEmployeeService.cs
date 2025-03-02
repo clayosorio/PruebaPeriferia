@@ -1,4 +1,5 @@
-﻿using PruebaPeriferia.Domain.Entities;
+﻿using PruebaPeriferia.Application.Dtos.Input;
+using PruebaPeriferia.Domain.Entities;
 
 namespace PruebaPeriferia.Application.Interfaces
 {
@@ -6,8 +7,8 @@ namespace PruebaPeriferia.Application.Interfaces
     {
         Task<IEnumerable<Employee>> GetAllEmployeesAsync();
         Task<Employee?> GetEmployeeByIdAsync(int id);
-        Task AddEmployeeAsync(Employee employee);
-        Task<bool> UpdateEmployeeAsync(Employee employee);
+        Task AddEmployeeAsync(EmployeeInputDto employee);
+        Task<bool> UpdateEmployeeAsync(EmployeeInputDto employee);
         Task<bool> DeleteEmployeeAsync(int id);
     }
 }
