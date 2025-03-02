@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{35BBAD13-C0A2-47F1-80D0-43CDD93C01A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{478D50AE-DEC9-4EDE-AB34-2402043AC0D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaPeriferia.WebApi", "PruebaPeriferia.WebApi\PruebaPeriferia.WebApi.csproj", "{DF9F5443-16F7-4FE3-976F-9B00EC371346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaPeriferia.Application", "PruebaPeriferia.Application\PruebaPeriferia.Application.csproj", "{56DF3F21-BD52-4E61-9915-D09076F8201D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaPeriferia.Domain", "PruebaPeriferia.Domain\PruebaPeriferia.Domain.csproj", "{F1F5333E-0EE7-4FFC-8F2E-CE3F18E73998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaPeriferia.Infraestructure", "PruebaPeriferia.Infraestructure\PruebaPeriferia.Infraestructure.csproj", "{4F697140-EBBF-4062-B1BD-CCEC37FD56F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriferiaPruebaTest", "PeriferiaPruebaTest\PeriferiaPruebaTest.csproj", "{C364B03E-AB21-4D5D-BF0A-136686FA1332}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF9F5443-16F7-4FE3-976F-9B00EC371346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9F5443-16F7-4FE3-976F-9B00EC371346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9F5443-16F7-4FE3-976F-9B00EC371346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9F5443-16F7-4FE3-976F-9B00EC371346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56DF3F21-BD52-4E61-9915-D09076F8201D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DF3F21-BD52-4E61-9915-D09076F8201D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DF3F21-BD52-4E61-9915-D09076F8201D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DF3F21-BD52-4E61-9915-D09076F8201D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F5333E-0EE7-4FFC-8F2E-CE3F18E73998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F5333E-0EE7-4FFC-8F2E-CE3F18E73998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F5333E-0EE7-4FFC-8F2E-CE3F18E73998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F5333E-0EE7-4FFC-8F2E-CE3F18E73998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F697140-EBBF-4062-B1BD-CCEC37FD56F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F697140-EBBF-4062-B1BD-CCEC37FD56F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F697140-EBBF-4062-B1BD-CCEC37FD56F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F697140-EBBF-4062-B1BD-CCEC37FD56F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C364B03E-AB21-4D5D-BF0A-136686FA1332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C364B03E-AB21-4D5D-BF0A-136686FA1332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C364B03E-AB21-4D5D-BF0A-136686FA1332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C364B03E-AB21-4D5D-BF0A-136686FA1332}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF9F5443-16F7-4FE3-976F-9B00EC371346} = {35BBAD13-C0A2-47F1-80D0-43CDD93C01A0}
+		{56DF3F21-BD52-4E61-9915-D09076F8201D} = {35BBAD13-C0A2-47F1-80D0-43CDD93C01A0}
+		{F1F5333E-0EE7-4FFC-8F2E-CE3F18E73998} = {35BBAD13-C0A2-47F1-80D0-43CDD93C01A0}
+		{4F697140-EBBF-4062-B1BD-CCEC37FD56F7} = {35BBAD13-C0A2-47F1-80D0-43CDD93C01A0}
+		{C364B03E-AB21-4D5D-BF0A-136686FA1332} = {478D50AE-DEC9-4EDE-AB34-2402043AC0D8}
+	EndGlobalSection
+EndGlobal
