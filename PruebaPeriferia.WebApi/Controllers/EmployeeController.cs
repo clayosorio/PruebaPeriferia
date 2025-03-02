@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PruebaPeriferia.Application.Dtos.Input;
 using PruebaPeriferia.Application.Interfaces;
-using PruebaPeriferia.Domain.Entities;
 
 namespace PruebaPeriferia.WebApi.Controllers
 {
@@ -25,6 +24,7 @@ namespace PruebaPeriferia.WebApi.Controllers
             return Ok(employees);
         }
 
+        [Authorize]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
@@ -33,6 +33,7 @@ namespace PruebaPeriferia.WebApi.Controllers
             return Ok(employee);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody] EmployeeInputDto employee)
         {
@@ -42,6 +43,7 @@ namespace PruebaPeriferia.WebApi.Controllers
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.Id }, employee);
         }
 
+        [Authorize]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeInputDto employee)
         {
@@ -53,6 +55,7 @@ namespace PruebaPeriferia.WebApi.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
