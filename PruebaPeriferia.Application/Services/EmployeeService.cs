@@ -1,5 +1,6 @@
 ﻿using Mapster;
 using PruebaPeriferia.Application.Dtos.Input;
+using PruebaPeriferia.Application.Helpers;
 using PruebaPeriferia.Application.Interfaces;
 using PruebaPeriferia.Domain.Entities;
 using PruebaPeriferia.Domain.Interfaces;
@@ -27,12 +28,32 @@ namespace PruebaPeriferia.Application.Services
 
         public async Task AddEmployeeAsync(EmployeeInputDto employee)
         {
+            if (string.IsNullOrEmpty(employee.Name)) 
+            {
+                throw new ArgumentException("Name can't be empty");
+            }
+
+            if (string.IsNullOrEmpty(employee.Email) || !Helper.IsValidEmail(employee.Email))
+            {
+                throw new ArgumentException("Invalid email");
+            }
+
             await _unitOfWork.Employees.AddAsync(employee.Adapt<Employee>());
             await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdateEmployeeAsync(EmployeeInputDto employee)
         {
+            if (string.IsNullOrEmpty(employee.Name))
+            {
+                throw new ArgumentException("Name can't be empty");
+            }
+
+            if (string.IsNullOrEmpty(employee.Email) || !Helper.IsValidEmail(employee.Email))
+            {
+                throw new ArgumentException("Invalid Email");
+            }
+
             var existingEmployee = await _unitOfWork.Employees.GetByIdAsync(employee.Id);
             if (existingEmployee == null) return false;
 

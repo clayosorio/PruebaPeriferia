@@ -5,8 +5,9 @@ using PruebaPeriferia.Application.Interfaces;
 
 namespace PruebaPeriferia.WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/departments")]
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService _departmentService;
@@ -15,7 +16,7 @@ namespace PruebaPeriferia.WebApi.Controllers
             _departmentService = departmentService;
         }
 
-        [Authorize]
+        
         [HttpGet]
         public async Task<IActionResult> GetAllDepartments()
         {
@@ -23,16 +24,14 @@ namespace PruebaPeriferia.WebApi.Controllers
             return Ok(departments);
         }
 
-        [Authorize]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetDepartmentById(int id)
         {
             var department = await _departmentService.GetDepartmentByIdAsync(id);
-            if (department == null) return NotFound();
+            if (department == null) return NotFound("Department does not exist");
             return Ok(department);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddDepartment([FromBody] DepartmentInputDto department)
         {
@@ -42,7 +41,6 @@ namespace PruebaPeriferia.WebApi.Controllers
             return CreatedAtAction(nameof(GetDepartmentById), new { id = department.Id }, department);
         }
 
-        [Authorize]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateDepartment(int id, [FromBody] DepartmentInputDto department)
         {
@@ -54,7 +52,6 @@ namespace PruebaPeriferia.WebApi.Controllers
             return NoContent();
         }
 
-        [Authorize]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteDepartment(int id)
         {
@@ -64,7 +61,6 @@ namespace PruebaPeriferia.WebApi.Controllers
             return NoContent();
         }
 
-        [Authorize]
         [HttpGet("{id}/employees")]
         public async Task<IActionResult> GetEmployeesByDepartment(int id)
         {
@@ -78,6 +74,5 @@ namespace PruebaPeriferia.WebApi.Controllers
             var salary = await _departmentService.GetDepartmentSalaryAsync(id);
             return Ok(new { DepartmentId = id, TotalSalary = salary });
         }
-
     }
 }

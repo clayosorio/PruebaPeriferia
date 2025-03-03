@@ -27,12 +27,22 @@ namespace PruebaPeriferia.Application.Services
 
         public async Task AddDepartmentAsync(DepartmentInputDto department)
         {
+            if (string.IsNullOrEmpty(department.Name))
+            {
+                throw new ArgumentException("Name can't be empty");
+            }
+
             await _unitOfWork.Departments.AddAsync(department.Adapt<Department>());
             await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdateDepartmentAsync(int id, DepartmentInputDto department)
         {
+            if (string.IsNullOrEmpty(department.Name))
+            {
+                throw new ArgumentException("Name can't be empty");
+            }
+
             var existingDepartment = await _unitOfWork.Departments.GetByIdAsync(id);
             if (existingDepartment == null) return false;
 
@@ -61,6 +71,11 @@ namespace PruebaPeriferia.Application.Services
         public async Task<decimal> GetDepartmentSalaryAsync(int departmentId) 
         {
             var employees = await _unitOfWork.Employees.GetEmployeesByDepartmentAsync(departmentId);
+
+            if (employees == null || !employees.Any()) 
+            {
+                throw new ArgumentException("There is not employees on this department");
+            }
 
             var salaryRules = new Dictionary<JobPosition, Func<Employee, decimal>>
             {

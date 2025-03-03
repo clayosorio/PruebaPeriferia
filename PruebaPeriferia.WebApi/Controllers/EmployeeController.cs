@@ -5,6 +5,7 @@ using PruebaPeriferia.Application.Interfaces;
 
 namespace PruebaPeriferia.WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
@@ -16,7 +17,6 @@ namespace PruebaPeriferia.WebApi.Controllers
             _employeeService = employeeService;
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllEmployees()
         {
@@ -24,16 +24,14 @@ namespace PruebaPeriferia.WebApi.Controllers
             return Ok(employees);
         }
 
-        [Authorize]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
             var employee = await _employeeService.GetEmployeeByIdAsync(id);
-            if (employee == null) return NotFound();
+            if (employee == null) return NotFound("Employee does not exist");
             return Ok(employee);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody] EmployeeInputDto employee)
         {
@@ -43,24 +41,22 @@ namespace PruebaPeriferia.WebApi.Controllers
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.Id }, employee);
         }
 
-        [Authorize]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeInputDto employee)
         {
             if (employee == null || id != employee.Id) return BadRequest("Invalid employee data");
 
             var updated = await _employeeService.UpdateEmployeeAsync(employee);
-            if (!updated) return NotFound();
+            if (!updated) return NotFound("Employee does not exist");
 
             return NoContent();
         }
 
-        [Authorize]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
             var deleted = await _employeeService.DeleteEmployeeAsync(id);
-            if (!deleted) return NotFound();
+            if (!deleted) return NotFound("Employee does not exist");
 
             return NoContent();
         }

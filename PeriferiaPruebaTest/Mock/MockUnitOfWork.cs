@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using Mapster;
+using Moq;
+using PruebaPeriferia.Application.Dtos.Input;
 using PruebaPeriferia.Domain.Entities;
 using PruebaPeriferia.Domain.Interfaces;
 
@@ -25,6 +27,11 @@ namespace PeriferiaPruebaTest.Mock
         public void SetupGetEmployeeById(int id, Employee employee)
         {
             EmployeeRepositoryMock.Setup(repo => repo.GetByIdAsync(id)).ReturnsAsync(employee);
+        }
+
+        public void SetupUpdateEmployeeAsync(Employee employee)
+        {
+            EmployeeRepositoryMock.Setup(repo => repo.Update(employee));
         }
     }
 }
