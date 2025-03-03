@@ -28,10 +28,5 @@ namespace PeriferiaPruebaTest.Mock
         {
             EmployeeRepositoryMock.Setup(repo => repo.GetByIdAsync(id)).ReturnsAsync(employee);
         }
-
-        public void SetupUpdateEmployeeAsync(Employee employee)
-        {
-            EmployeeRepositoryMock.Setup(repo => repo.Update(employee));
-        }
     }
 }
